@@ -1,0 +1,14 @@
+1. build mbedtls:
+go to mbedtls-3.4.0
+
+md build; cd build
+	cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=D:/prog/programming/mingw64/bin/g++.exe -DCMAKE_C_COMPILER=D:/prog/programming/mingw64/bin/gcc.exe -S .. -DCMAKE_BUILD_TYPE=Release
+BUILDING:
+	cmake --build . --config Release
+
+
+2. build mongoose:
+
+REM make folders mbedtls/include and mbedtls/library and copy *.a files from mbedtls-3.4.0\build\library and  contents of mbedtls-3.4.0\build\include
+
+gcc mongoose.c main.c -lws2_32 -DMG_ENABLE_MBEDTLS=1 -lmbedtls -lmbedcrypto -lmbedx509 -Imbedtls/include -Lmbedtls/library -o main.exe

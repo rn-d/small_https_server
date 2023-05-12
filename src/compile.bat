@@ -1,0 +1,2 @@
+REM make folders mbedtls/include and mbedtls/library and copy *.a files from mbedtls-3.4.0\build\library and  contents of mbedtls-3.4.0\build\include
+gcc mongoose.c main.c -lws2_32 -DMG_ENABLE_MBEDTLS=1 -lmbedtls -lmbedcrypto -lmbedx509 -Imbedtls/include -Lmbedtls/library -o main.exe
